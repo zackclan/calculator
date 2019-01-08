@@ -51,3 +51,21 @@ let delet = document.getElementById('delete')
 delet.addEventListener('click',function(){
     deleter();
 })
+window.addEventListener('keypress', function(e) {
+    if(e.key === '0' || e.key === "/" || e.key === "*" || e.key === "+"
+            || e.key === "-" || e.key === "1" || e.key === "2" || e.key === "3"
+            || e.key === "4" || e.key === "5" || e.key === "6" || e.key === "7" 
+            || e.key === "8" || e.key === "9"){
+        numArray.push(e.key)
+        document.getElementById('top').value = numArray.join('')
+        let numString = numArray.toString()
+        numString = numString.replace(/,/gi, "")
+        document.getElementById('bottom').value = eval(numString);
+        }else if(e.key === "Enter"){
+            calculate();}
+            else if(e.key === "Delete"){
+                deleter();
+            }
+    
+
+})
